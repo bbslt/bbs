@@ -26,6 +26,6 @@ urlpatterns = [
     url(r'^post/read/',post_views.read_post),
     url(r'^post/delete/',post_views.delete_post),
     url(r'^post/list/',post_views.post_list),
-    url(r'^post/search/',post_views.seach),
+    url(r'^post/search/',post_views.search),
 
 ]
