@@ -89,7 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+.idea
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -102,3 +102,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+./statics/.DS_Store
+
+statics/.DS_Store
+
