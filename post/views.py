@@ -1,3 +1,5 @@
+from math import ceil
+
 from django.shortcuts import render, redirect
 
 from post.models import Post
@@ -48,9 +50,19 @@ def delete_post(request):
 
 
 def post_list(request):
-    posts = Post.objects.all()
+    #当前页数
+    page = int(request.GET.get("page",1))
+    #文章总数
+    total = Post.objects.count()
+    #每页文章数
+    per_page = 10
+    #总页数
+    pages = ceil(total/per_page)
+    start = (page - 1) * per_page
+    end = start + per_page
+    posts = Post.objects.all()[start:end]
     # posts = Post.objects.all().order_by("-id")
-    return render(request,'post_list.html',{"posts":posts})
+    return render(request,'post_list.html',{"posts":posts,"pages":range(pages)})
 
 
 def search(request):
