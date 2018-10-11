@@ -61,6 +61,7 @@ def post_list(request):
     start = (page - 1) * per_page
     end = start + per_page
     posts = Post.objects.all()[start:end]
+    #对拿到的对象逆向排序
     # posts = Post.objects.all().order_by("-id")
     return render(request,'post_list.html',{"posts":posts,"pages":range(pages)})
 
